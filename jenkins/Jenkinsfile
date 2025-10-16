@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven:3.9.5-openjdk-17' // Exemplo de uma boa imagem
+            args '-u root' // Pode ser necessário dependendo da configuração do seu Jenkins
+        }
+    }
     options {
         skipStagesAfterUnstable()
     }
